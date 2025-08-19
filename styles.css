@@ -59,10 +59,15 @@ button {
 #login {
     color: white;
     background-color: hsl(240, 100%, 50%);
+    margin-bottom: 20px;
 }
 
 #login:hover {
     background-color: hsl(240, 100%, 45%);
+}
+
+#SignUp {
+    margin-bottom: 20px;
 }
 
 #SignUp:hover {
