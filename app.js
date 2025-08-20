@@ -5,6 +5,7 @@ function addTask() {
 
     //Create elements
     const li = document.createElement("li");
+
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
 

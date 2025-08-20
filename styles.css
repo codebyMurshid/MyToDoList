@@ -46,6 +46,7 @@ button {
     font-family: Roboto;
     font-weight: 800;
     background-color: white;
+    cursor: pointer;
 }
 
 .button {

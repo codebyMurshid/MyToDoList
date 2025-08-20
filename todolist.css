@@ -80,6 +80,7 @@ h1 {
     font-size: 14px;
     color: white;
     background-color: hsla(226, 100%, 50%, 0.877);
+    cursor: pointer;
 }
 
 #tasklist li {
@@ -91,6 +92,11 @@ h1 {
     border-radius: 8px;
     margin-bottom: 8px;
     font-size: 20px;
+}
+
+li input[type="checkbox"]:checked+.task-text {
+    text-decoration: line-through;
+    color: gray;
 }
 
 .task-text {
