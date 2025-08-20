@@ -3,6 +3,10 @@ function addTask() {
     const categorySelect = document.getElementById("categorySelect");
     const tasklist = document.getElementById("tasklist");
 
+    if (taskInput.value.trim() === "") {
+        return;
+    }
+
     //Create elements
     const li = document.createElement("li");
 
@@ -29,6 +33,18 @@ function addTask() {
     li.appendChild(deleteBtn);
 
     tasklist.appendChild(li);
+
+    //Clear input after adding
+    taskInput.value = "";
+    categorySelect.value = "";
 }
+
+//Adding to list using Enter key
+taskInput.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Prevents accidental form submission/reload
+        addTask();
+    }
+})
 
 
