@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+}
+
+h1 {
+    font-size: 35px;
+}
+
+.container {
+    width: 400px;
+    min-height: 300px;
+    padding: 2rem;
+    font-size: 15px;
+    box-shadow: 0.5px 0.5px 8px gray;
+    border-radius: 10px;
+}
+
+.heading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.task-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.task-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.task-input select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.Add-task-btn {
+    display: flex;
+    justify-content: right;
+}
+
+.Add-task-btn button {
+    margin-bottom: 12px;
+    width: 140px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    color: white;
+    background-color: hsla(226, 100%, 50%, 0.877);
+}
+
+.todolist li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.task-text {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.category {
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: white;
+}
+
+.category.work {
+    background-color: green;
+}
+
+.category.study {
+    background-color: blue;
+}
+
+.category.personal {
+    background-color: orange;
+}
+
+.delete-btn {
+    margin-left: 12px;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    color: red;
+    cursor: pointer;
+}
