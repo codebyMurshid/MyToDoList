@@ -45,6 +45,19 @@ h1 {
     gap: 30px;
 }
 
+#logout {
+    background-color: #eee;
+    border: 1px solid;
+    border-color: #ddd;
+    border-radius: 15px;
+    padding: 8px;
+    color: black;
+}
+
+#logout:hover {
+    background-color: hsla(0, 0%, 50%, 0.363);
+}
+
 .task-input {
     display: flex;
     align-items: center;
@@ -67,6 +80,10 @@ h1 {
     font-size: 14px;
 }
 
+.task-input select:focus {
+    border-color: blue;
+}
+
 .Add-task-btn {
     display: flex;
     justify-content: right;
@@ -82,6 +99,10 @@ h1 {
     color: white;
     background-color: hsla(226, 100%, 50%, 0.877);
     cursor: pointer;
+}
+
+.Add-task-btn button:hover {
+    background-color: hsla(226, 100%, 50%, 0.757)
 }
 
 #tasklist li {
