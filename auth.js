@@ -4,26 +4,32 @@ const password = document.getElementById("password");
 const credentialserror = document.querySelector(".credentialserror");
 
 const useremail = ["test", "test2"];
-const userpass = ["123", "456"]
-
+const userpass = ["123", "456"];
 
 login.addEventListener("click", function () {
-    console.log(email.value);
-    console.log(password.value);
+    // empty check
+    if (!email.value || !password.value) {
+        credentialserror.classList.add("active");
+        return;
+    }
 
-    if (email.value === "" || password.value === "") {
+    // find email index
+    const emailIndex = useremail.indexOf(email.value);
+
+    if (emailIndex !== -1 && userpass[emailIndex] === password.value) {
+        // correct pair → login success
+        window.location.href = "todolist.html";
+    } else {
+        // wrong email/pass
         credentialserror.classList.add("active");
     }
-    else {
-        credentialserror.classList.remove("active");
-    }
+});
 
-    if (useremail.includes(email.value) && userpass.includes(password.value)) {
-        window.location.href = 'todolist.html';
+// Hide error instantly when user types
+[email, password].forEach(input => {
+    if (input) { // avoid null crash
+        input.addEventListener("input", () => {
+            credentialserror.classList.remove("active");
+        });
     }
-
-    else {
-        credentialserror.classList.add("active");;
-    }
-
-})
+});
