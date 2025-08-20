@@ -21,8 +21,8 @@
             </div>
 
             <div class="task-input">
-                <input type="text" placeholder="Enter your task...">
-                <select name="Categories" id="categories">
+                <input type="text" id="taskInput" placeholder="Enter your task...">
+                <select id="categorySelect">
                     <option value="work">Work</option>
                     <option value="study">Study</option>
                     <option value="personal">Personal</option>
@@ -33,16 +33,20 @@
                 <button onclick="addTask()">Add Task</button>
             </div>
 
-            <ul class="todolist">
+            <ul id="tasklist">
+                <!-- Template
                 <li>
                     <input type="checkbox">
                     <span class="task-text">Finish homework</span>
                     <span class="category study">Study</span>
                     <button class="delete-btn">X</button>
                 </li>
+                -->
             </ul>
         </div>
     </main>
+
+    <script src="app.js"></script>
 </body>
 
 </html>

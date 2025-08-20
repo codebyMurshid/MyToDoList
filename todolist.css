@@ -82,7 +82,7 @@ h1 {
     background-color: hsla(226, 100%, 50%, 0.877);
 }
 
-.todolist li {
+#tasklist li {
     display: flex;
     justify-content: space-between;
     align-items: center;
