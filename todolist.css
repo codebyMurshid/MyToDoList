@@ -111,16 +111,16 @@ li input[type="checkbox"]:checked+.task-text {
     color: white;
 }
 
-.category.work {
-    background-color: green;
+.category.low {
+    color: limegreen;
 }
 
-.category.study {
-    background-color: blue;
+.category.medium {
+    color: gold;
 }
 
-.category.personal {
-    background-color: orange;
+.category.high {
+    color: red;
 }
 
 .delete-btn {
