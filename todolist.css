@@ -56,6 +56,7 @@ h1 {
 
 #logout:hover {
     background-color: hsla(0, 0%, 50%, 0.363);
+    transform: translateY(-1px);
 }
 
 .task-input {
@@ -102,7 +103,8 @@ h1 {
 }
 
 .Add-task-btn button:hover {
-    background-color: hsla(226, 100%, 50%, 0.757)
+    background-color: hsla(226, 100%, 50%, 0.757);
+    transform: translateY(-1px);
 }
 
 #tasklist li {

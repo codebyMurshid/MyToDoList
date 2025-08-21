@@ -57,6 +57,25 @@ button {
     justify-content: center;
 }
 
+.google-btn {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex: 1;
+    gap: 10px;
+    border: 1px solid #555;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.google-btn:hover {
+    transform: translateY(-1px);
+}
+
 .credentialserror,
 .credentialsunknown {
     display: none;
@@ -76,6 +95,11 @@ button {
 
 #login:hover {
     background-color: hsl(240, 100%, 45%);
+    transform: translateY(-1px);
+}
+
+.signup a:hover {
+    color: rgb(111, 111, 111);
 }
 
 #SignUp {
@@ -85,6 +109,8 @@ button {
 #SignUp:hover {
     background-color: hsl(0, 0%, 90%);
 }
+
+
 
 #forgetpassword:hover {
     color: hsl(0, 0%, 51%);
