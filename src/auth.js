@@ -126,7 +126,7 @@ if (window.location.pathname.endsWith("todolist.html")) {
         // Not logged in --> redirect to login page
         window.location.href = "index.html";
     } else {
-        console.log("Logged in as:", user);
+        //console.log("Logged in as:", user);
 
         const userprofile = document.getElementById("userprofile");
         if (userprofile) {
