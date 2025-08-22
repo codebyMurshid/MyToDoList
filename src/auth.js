@@ -1,58 +1,145 @@
-const login = document.getElementById("login");
+// ========== DOM ELEMENTS ==========
+const loginBtn = document.getElementById("login-btn");
+const Name = document.getElementById("Name");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
-const credentialserror = document.querySelector(".credentialserror");
+const credentialError = document.querySelector(".credentialserror");
+const signupBtn = document.getElementById("signup-btn");
 
 const clientId = "923216260193-hhgkre5bbrso32kcson7hnhsg07j9j58.apps.googleusercontent.com";
 
-const useremail = ["test", "test2"];
-const userpass = ["123", "456"];
+// Load existing "users" database from localStorage
+let storedUsers = JSON.parse(localStorage.getItem("users")) || [];
 
-login.addEventListener("click", function () {
-    // empty check
-    if (!email.value || !password.value) {
-        credentialserror.classList.add("active");
-        return;
-    }
 
-    // find email index
-    const emailIndex = useremail.indexOf(email.value);
+// ==================== LOCAL LOGIN ====================
+if (loginBtn) {
+    loginBtn.addEventListener("click", function () {
+        // empty check
+        if (!email.value || !password.value) {
+            credentialError.classList.add("active");
+            return;
+        }
 
-    if (emailIndex !== -1 && userpass[emailIndex] === password.value) {
-        // correct pair → login success
-        window.location.href = "todolist.html";
-    } else {
-        // wrong email/pass
-        credentialserror.classList.add("active");
-    }
-});
+        // find matching user
+        const matchedUser = storedUsers.find(user => user.email === email.value && user.password === password.value);
+
+        if (matchedUser) {
+            // Save logged-in user
+            localStorage.setItem("user", JSON.stringify(matchedUser));
+            window.location.href = "todolist.html";
+        } else {
+            credentialError.classList.add("active");
+        }
+    });
+}
 
 // Hide error instantly when user types
 [email, password].forEach(input => {
-    if (input) { // avoid null crash
+    if (input) {
         input.addEventListener("input", () => {
-            credentialserror.classList.remove("active");
+            credentialError.classList.remove("active");
         });
     }
 });
 
-window.onload = function () {
-    google.accounts.id.initialize({
-        client_id: clientId,
-        callback: handleCredentialResponse
-    });
 
-    document.getElementById("google-login").addEventListener("click", () => {
-        google.accounts.id.prompt(); // show popup
-    });
+// ==================== LOCAL SIGNUP ====================
+if (signupBtn) {
+    signupBtn.addEventListener("click", signup);
+}
+
+function signup() {
+    const signupEmail = email.value;
+    const signupPassword = password.value;
+    const signupName = Name.value;
+
+    // Check for duplicates
+    const userExists = storedUsers.some(user => user.email === signupEmail);
+    if (userExists) {
+        alert("Email already exists!");
+        return;
+    }
+
+    const newUser = {
+        name: signupName,
+        email: signupEmail,
+        password: signupPassword,
+        loginType: "local"
+    };
+
+    storedUsers.push(newUser);
+    localStorage.setItem("users", JSON.stringify(storedUsers));
+
+    alert("Account created! Please log in.");
+    window.location.href = "index.html";
+}
+
+
+// ==================== GOOGLE LOGIN ====================
+window.onload = function () {
+    const googleBtn = document.getElementById("google-login");
+    if (googleBtn) {
+        google.accounts.id.initialize({
+            client_id: clientId,
+            callback: handleCredentialResponse
+        });
+
+        googleBtn.addEventListener("click", () => {
+            google.accounts.id.prompt(); // show popup
+        });
+    }
 };
 
 function handleCredentialResponse(response) {
     const payload = JSON.parse(atob(response.credential.split(".")[1]));
 
-    document.getElementById("userInfo").innerHTML = `
-    <p><strong>Welcome, ${payload.name}</strong></p>
-    <p>Email: ${payload.email}</p>
-    <img src="${payload.picture}" width="80"/>
-  `;
+    // Save Google user in "database" if not exists
+    if (!storedUsers.some(u => u.email === payload.email)) {
+        const newUser = {
+            name: payload.name,
+            email: payload.email,
+            picture: payload.picture,
+            loginType: "google"
+        };
+        storedUsers.push(newUser);
+        localStorage.setItem("users", JSON.stringify(storedUsers));
+    }
+
+    // Save current logged in user
+    localStorage.setItem("user", JSON.stringify({
+        name: payload.name,
+        email: payload.email,
+        picture: payload.picture,
+        loginType: "google"
+    }));
+
+    window.location.href = "todolist.html";
+}
+
+
+// ==================== PROTECT TODOLIST ====================
+if (window.location.pathname.endsWith("todolist.html")) {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!user) {
+        // Not logged in --> redirect to login page
+        window.location.href = "index.html";
+    } else {
+        console.log("Logged in as:", user);
+
+        const userprofile = document.getElementById("userprofile");
+        if (userprofile) {
+            userprofile.textContent = `Welcome, ${user.name}!`;
+        }
+    }
+
+    // Logout button
+    const logoutBtn = document.getElementById("logout-btn");
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", () => {
+            localStorage.removeItem("user");
+            window.location.href = "index.html";
+        });
+    }
 }
