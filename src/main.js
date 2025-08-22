@@ -1,2 +1,2 @@
-import '/auth.js';
-import '/app.js';
+import './auth.js';
+import './app.js';
