@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-
     const taskInput = document.getElementById("taskInput");
     const categorySelect = document.getElementById("categorySelect");
     const tasklist = document.getElementById("tasklist");
@@ -37,6 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
         li.appendChild(deleteBtn);
 
         tasklist.appendChild(li);
+
+        //Trigger animation
+        requestAnimationFrame(() => {
+            li.classList.add("show");
+        })
 
         //Clear input after adding
         taskInput.value = "";

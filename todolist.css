@@ -138,9 +138,22 @@ h1 {
     font-size: 20px;
 }
 
+/*Animation for li */
+li {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+li.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 li input[type="checkbox"]:checked+.task-text {
     text-decoration: line-through;
     color: gray;
+    transition: all 0.3s ease-in-out;
 }
 
 .task-text {
