@@ -29,24 +29,6 @@ h1 {
     font-size: 35px;
 }
 
-#userprofile-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
-
-#userprofile {
-    margin-bottom: 10px;
-    padding: 20px;
-    max-width: fit-content;
-    font-family: Arial;
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    border: 1px solid #ddd;
-    border-radius: 25px;
-}
 
 .container {
     width: 400px;
@@ -64,20 +46,6 @@ h1 {
     gap: 30px;
 }
 
-#logout-btn {
-    background-color: #eee;
-    border: 1px solid;
-    border-color: #ddd;
-    border-radius: 15px;
-    padding: 8px;
-    color: black;
-}
-
-#logout-btn:hover {
-    background-color: hsla(0, 0%, 50%, 0.363);
-    transform: translateY(-1px);
-    cursor: pointer;
-}
 
 .task-input {
     display: flex;
