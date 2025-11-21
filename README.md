@@ -2,39 +2,39 @@
 
 Todolyst is a simple and lightweight to-do list application built using HTML, CSS, and JavaScript. It allows users to quickly add, complete, and delete tasks through a clean and minimal interface. This project focuses on core front-end concepts like DOM manipulation, event handling, and dynamic UI updates.
 
-🚀 Features 
+**<ins>Features</ins>**
 
-  ➕ Add new tasks
+  - _Add new tasks_
   
-  ✔️ Mark tasks as completed
+  - _Mark tasks as completed_
   
-  🗑️ Delete tasks instantly
+  - _Delete tasks instantly_
 
-  🎨 Clean and minimal UI
+  - _Clean and minimal UI_
   
-  🧩 Built with only vanilla HTML, CSS, and JavaScript
+  - _Built with only vanilla HTML, CSS, and JavaScript_
 
-📚 What I Learned
+ **<ins>What I Learned</ins>**
+ 
+  - _How to modify the DOM dynamically_
 
-  How to modify the DOM dynamically
+  - _Handling user input and events_
 
-  Handling user input and events
+  - _Creating interactive components without any frameworks_
 
-  Creating interactive components without any frameworks
-
-  Organizing a small front-end project cleanly
+  - _Organizing a small front-end project cleanly_
     
 
-📸 Preview
+**<ins>Preview</ins>**
 
 <img width="989" height="673" alt="Todolyst - Preview" src="https://github.com/user-attachments/assets/803924ef-30b4-4c29-ad9d-852830f6abe8" />
 
 
-🛠️ Technologies Used:
+**<ins>Technologies Used</ins>**:
 
-  HTML
+  - _HTML_
   
-  CSS
+  - _CSS_
   
-  JavaScript 
+  - _JavaScript_ 
   
