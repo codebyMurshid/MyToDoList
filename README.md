@@ -36,5 +36,5 @@ Todolyst is a simple and lightweight to-do list application built using HTML, CS
   
   CSS
   
-  JavaScript (DOM Manipulation)
+  JavaScript 
   
